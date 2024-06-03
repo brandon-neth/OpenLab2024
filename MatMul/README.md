@@ -4,6 +4,8 @@ The final challenge is an open ended one. Your task is a classic one: speed up m
 
 Your goal is to maximize the throughput of the matrix multiplication. Some directions to consider include parallelizing with shared memory and distributed parallelism, tiling transformations, and GPU execution. Consider both the average performance across all matrices and the performance for specific matrix shapes.
 
+When compiling, don't forget the `--fast` flag!
+
 #### Adding a Multiplier
 
 To add an implementation of a matrix multiplication algorithm, create a new class definition that is a subclass of the `Multiplier` class. 

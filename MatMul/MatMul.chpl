@@ -15,10 +15,24 @@ proc generateMatrixDistributed(n: int, m: int, seed=0) {
   return A;
 }
 
+proc checkCorrectness(A: [] real, B: [] real, C: [] real) {
+  const correct = (new naiveMultiplier()).matMul(A,B);
+  if correct.domain != C.domain {
+    writeln("Mismatched domains. Correctness check failed. ", correct.domain, " ", C.domain);
+    return false;
+  }
+  for i in correct == C {
+    if !i {
+      writeln("Value mismatch. Correctness check failed.");
+      return false;
+    }
+  }
+  return true;
+}
+
 class Multiplier {
   proc name() do return "Base";
   proc matMul(A: [] real(64), B: [] real(64)) {
-    writeln("Base class implementation");
     return A;
   }
 }
@@ -54,6 +68,7 @@ proc evaluate(in multiplier: Multiplier) {
     s.restart();
     var C = multiplier.matMul(A, B);
     s.stop();
+    if !checkCorrectness(A,B,C) then continue;
     var flop = flopCount(A, B);
     var time = s.elapsed();
     var gflops = flop / time / 1e9;
@@ -63,6 +78,7 @@ proc evaluate(in multiplier: Multiplier) {
   }
   var totalGflops = totalFlops / totalTime / 1e9;
   writeln("Total: ", totalGflops);
+  writeln();
 }
 
 
