@@ -15,26 +15,34 @@ proc generateMatrixDistributed(n: int, m: int, seed=0) {
   return A;
 }
 
-proc matMul(A: [] real(64), B: [] real(64)) {
-  const D1 = A.domain;
-  const D2 = B.domain;
-  var C: [D1.dim(0), D2.dim(1)] real = 0;
+class Multiplier {
+  proc name() do return "Base";
+  proc matMul(A: [] real(64), B: [] real(64)) {
+    writeln("Base class implementation");
+    return A;
+  }
+}
 
-  for i in D1.dim(0) {
-    for j in D2.dim(1) {
-      for k in D1.dim(1) {
-        C[i, j] += A[i, k] * B[k, j];
+class naiveMultiplier: Multiplier {
+  override proc name() do return "Naive";
+  override proc matMul(A: [] real(64), B: [] real(64)) {
+    const D1 = A.domain;
+    const D2 = B.domain;
+    var C: [D1.dim(0), D2.dim(1)] real = 0;
+
+    for i in D1.dim(0) {
+      for j in D2.dim(1) {
+        for k in D1.dim(1) {
+          C[i, j] += A[i, k] * B[k, j];
+        }
       }
     }
+    return C;
   }
-  return 1;
 }
 
-proc flopCount(A: [?D1] real, B: [?D2] real) {
-  return (D1.shape(0) * D1.shape(1)) * (2 * D2.shape(1) - 1);
-}
-
-proc main() {
+proc evaluate(in multiplier: Multiplier) {
+  writeln("Evaluating ", multiplier.name());
   var s: stopwatch;
   var domainTriples = ((1000,1000,1000), (1000,2000,1000), (1000,10,1000), (1000,10,100), (100000, 1, 100));
   var totalFlops = 0;
@@ -44,7 +52,7 @@ proc main() {
     var A = generateMatrix(m, n, 0);
     var B = generateMatrix(n, p, 1);
     s.restart();
-    var C = matMul(A, B);
+    var C = multiplier.matMul(A, B);
     s.stop();
     var flop = flopCount(A, B);
     var time = s.elapsed();
@@ -55,4 +63,14 @@ proc main() {
   }
   var totalGflops = totalFlops / totalTime / 1e9;
   writeln("Total: ", totalGflops);
+}
+
+
+
+proc flopCount(A: [?D1] real, B: [?D2] real) {
+  return (D1.shape(0) * D1.shape(1)) * (2 * D2.shape(1) - 1);
+}
+
+proc main() {
+  evaluate(new naiveMultiplier());
 }
