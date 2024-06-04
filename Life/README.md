@@ -22,7 +22,7 @@ Once you have your code that progresses the simulation, you can write the simula
 use Image;
 
 config const imageScale:int = 4;
-var img = new mediaPip("life.mp4", imageType.bmp);
+var img = new mediaPipe("life.mp4", imageType.bmp);
 
 proc processFrameData(data) do
   return scale(
