@@ -12,6 +12,7 @@ The input file, file type, and value to use for `n` are provided to the program 
 
 #### Bonus: Alternative Gene Data Format
 
+A common format for representing nucleotide sequences is the [FASTA format](https://zhanggroup.org/FASTA/). This format can also represent peptide sequences. For an extra challenge, implement a reader that processes files in FASTA format. Some examples are included in this directory with the `.fasta` extension.
 
 
 #### Useful Documentation Links
