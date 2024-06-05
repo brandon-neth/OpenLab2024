@@ -30,5 +30,8 @@ Once you've got the driver building and running, you're set to go! Try recreatin
 
 Once you've created an example or two, consider writing some Chapel code that implements similar functionality using the Rebound data types. How does the code structure compare to the C library code? Can you parallelize the computation without porting the entire library? Let your creativity guide you, and have fun!
 
+### Useful Documentation Links
 
-
+- [Chapel<->C Interoperability Primer](https://chapel-lang.org/docs/primers/interopWithC.html)
+- [C Interoperability Technical Notes](https://chapel-lang.org/docs/technotes/extern.html)
+- [CTypes Module](https://chapel-lang.org/docs/modules/standard/CTypes.html)

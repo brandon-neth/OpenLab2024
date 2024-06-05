@@ -11,3 +11,13 @@ When compiling, don't forget the `--fast` flag!
 To add an implementation of a matrix multiplication algorithm, create a new class definition that is a subclass of the `Multiplier` class. 
 Implement a `name` method that returns the name of your multiplication approach and then implement your multiplication within the `matMul` method. 
 Finally, add a call to `evaluate` to the body of the `main` method, passing an instance of your newly defined class.
+
+### Useful Documentation Links
+
+- [Forall Loops Primer](https://chapel-lang.org/docs/primers/forallLoops.html)
+- [Reductions Primer](https://chapel-lang.org/docs/primers/reductions.html)
+- [GPU Programming Technical Notes](https://chapel-lang.org/docs/technotes/gpu.html)
+- [GPU Module](https://chapel-lang.org/docs/modules/standard/GPU.html)
+- [Distributions Primer](https://chapel-lang.org/docs/primers/distributions.html)
+- [Parallel Iterators Primer](https://chapel-lang.org/docs/primers/parIters.html)
+- [Memory Consistency Model](https://chapel-lang.org/docs/language/spec/memory-consistency-model.html)

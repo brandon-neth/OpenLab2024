@@ -15,4 +15,9 @@ The input file, file type, and value to use for `n` are provided to the program 
 A common format for representing nucleotide sequences is the [FASTA format](https://zhanggroup.org/FASTA/). This format can also represent peptide sequences. For an extra challenge, implement a reader that processes files in FASTA format. Some examples are included in this directory with the `.fasta` extension.
 
 
-#### Useful Documentation Links
+### Useful Documentation Links
+
+- [IO Module](https://chapel-lang.org/docs/modules/standard/IO.html)
+- [Configuration Variables](https://chapel-lang.org/docs/language/spec/variables.html#configuration-variables)
+- [ConcurrentMap Module](https://chapel-lang.org/docs/modules/packages/ConcurrentMap.html)
+- [ParallelIO Module](https://chapel-lang.org/docs/modules/packages/ParallelIO.html)

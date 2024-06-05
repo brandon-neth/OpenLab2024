@@ -34,3 +34,13 @@ proc processFrameData(data) do
 //add the following line to the end of your simulation loop
 img.writeFrame(processFrameData(/*YourGridVariable*/));
 ```
+
+### Useful Documentation Links
+
+- [Loops Primer](https://chapel-lang.org/docs/primers/loops.html)
+- [Domains Primer](https://chapel-lang.org/docs/primers/domains.html)
+- [Array Primer](https://chapel-lang.org/docs/primers/arrays.html)
+- [Domains Spec](https://chapel-lang.org/docs/language/spec/domains.html)
+- [Arrays Spec](https://chapel-lang.org/docs/language/spec/arrays.html)
+- [IO Module](https://chapel-lang.org/docs/modules/standard/IO.html)
+- [Configuration Variables](https://chapel-lang.org/docs/language/spec/variables.html#configuration-variables)
