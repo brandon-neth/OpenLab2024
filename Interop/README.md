@@ -24,5 +24,11 @@ Once the Rebound library is built, we can compile the starting Chapel driver cod
 chpl -I$REBOUND_SRC -L$REBOUND_SRC driver.chpl -lrebound
 ```
 
-### Part 1: Simple Problem
+### Writing Interoperating Code
+
+Once you've got the driver building and running, you're set to go! Try recreating some of the examples using Rebound in the [examples directory](https://github.com/brandon-neth/rebound/tree/main/examples). [This](https://github.com/brandon-neth/rebound/tree/main/examples/simplest) is a good one to get started with. 
+
+Once you've created an example or two, consider writing some Chapel code that implements similar functionality using the Rebound data types. How does the code structure compare to the C library code? Can you parallelize the computation without porting the entire library? Let your creativity guide you, and have fun!
+
+
 

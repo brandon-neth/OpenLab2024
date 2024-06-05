@@ -1,38 +1,5 @@
 use CTypes;
-
-require "rebound.h";
-require "tree.h";
-
-extern record reb_treecell {
-  var x: real;
-  var y: real;
-  var z: real;
-  var w: real;
-  var m: real;
-  var mx: real;
-  var my: real;
-  var mz: real;
-  var oct : c_array(c_ptr(reb_treecell),8);
-  var pt: int;
-}
-
-extern record reb_particle {
-  var x: real;
-  var y: real;
-  var z: real;
-  var vx: real;
-  var vy: real;
-  var vz: real;
-  var ax: real;
-  var ay: real;
-  var az: real;
-  var m: real;
-  var r: real;
-  var last_collision: real;
-  var c: c_ptr(reb_treecell);
-}
-
-extern proc reb_particle_distance(p1: c_ptr(reb_particle), p2: c_ptr(reb_particle)): real;
+use Bindings;
 
 proc part0() {
   var treeCell = new reb_treecell();
@@ -44,5 +11,4 @@ proc part0() {
 
 proc main() {
   part0();
-  
 }
